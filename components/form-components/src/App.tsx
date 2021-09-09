@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { GlobalStyle } from './App.styles';
-import { RegisterPage } from './Pages/RegisterPage';
+import { Router } from './Router';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <RegisterPage />
+      <Router />
     </>
   );
 };
