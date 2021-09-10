@@ -13,9 +13,6 @@ export const FormItem = styled.div`
   }
 
   input {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     background-color: ${COLORS.inputbkg};
     color: ${COLORS.body};
     padding: 5px 16px;
@@ -34,17 +31,50 @@ export const FormItem = styled.div`
   }
 `;
 
-export const Card = styled.div`
+// Cards.
+export const CenterContainer = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const HorizontalContainer = styled.div`
+  display: flex;
+`;
+
+const CardBase = styled.div`
   background-color: ${COLORS.white};
   border-radius: 10px;
-  width: 418px;
   padding: 20px;
   box-shadow: 0px 5px 10px rgba(160, 163, 189, 0.1);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `;
 
+export const Card = styled(CardBase)`
+  width: 418px;
+`;
+
+export const CardBanner = styled(CardBase)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 5px 15px 0;
+  width: 100vw;
+  gap: 10px;
+`;
+
+// Form validation.
+export const ErrorMessage = styled.div`
+  background-color: transparent;
+  color: ${COLORS.danger};
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0 0 5px;
+`;
+
+// Buttons.
 export const Button = styled.button`
   padding: 5px 16px;
   height: 44px;
@@ -62,17 +92,6 @@ export const Button = styled.button`
   }
 `;
 
-// Form validation.
-export const ErrorMessage = styled.div`
-  background-color: transparent;
-  color: ${COLORS.danger};
-  font-size: 12px;
-  font-style: italic;
-  margin: 10px 0 0 5px;
-`;
-
-// Buttons.
-
 export const PrimaryButton = styled(Button)`
   color: ${COLORS.white};
   background-color: ${COLORS.primary};
@@ -80,4 +99,9 @@ export const PrimaryButton = styled(Button)`
   &:hover {
     background-color: ${COLORS.primarylt};
   }
+`;
+
+// Inline buttons.
+export const IlBtnPrimary = styled(PrimaryButton)`
+  margin-top: 20px;
 `;

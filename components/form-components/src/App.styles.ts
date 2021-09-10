@@ -6,25 +6,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
     font-family: 'Inter', sans-serif;
+  }
+
+  #root {
+    height: 100%;
     background-color: ${COLORS.light};
   }
 
-  html {
+  html, body {
     height: 100%;
   }
-
-  body {
-    display: flex;
-	  min-height: 100%;
-	  align-items: center;
-	  justify-content: center;
-  }
-
   /* Text */
   h1 {
-    background-color: transparent;
     font-style: normal;
     font-weight: bold;
     font-size: 64px;
@@ -33,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    background-color: transparent;
+
     font-style: normal;
     font-weight: bold;
     font-size: 48px;
@@ -42,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h3 {
-    background-color: transparent;
     font-style: normal;
     font-weight: bold;
     font-size: 32px;
@@ -51,7 +44,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    background-color: transparent;
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
@@ -59,7 +51,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .bold {
-    background-color: transparent;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -68,7 +59,6 @@ export const GlobalStyle = createGlobalStyle`
 
   label {
     color: ${COLORS.title};
-    background-color: transparent;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
