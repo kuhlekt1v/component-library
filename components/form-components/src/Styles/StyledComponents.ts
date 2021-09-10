@@ -105,15 +105,3 @@ export const PrimaryButton = styled(Button)`
 export const IlBtnPrimary = styled(PrimaryButton)`
   margin-top: 20px;
 `;
-
-// Text.
-export const Title = styled.span`
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    fontSize: 19,
-    lineHeight: '24px',
-    letterSpacing: '0.4px',
-    color: '#A4A6B3',
-    opacity: 0.7,
-    marginLeft: 12 // <--- necessary to separate title and logo
-`;

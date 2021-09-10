@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
   }
+  
   /* Text */
   h1 {
     font-style: normal;
