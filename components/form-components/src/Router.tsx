@@ -7,10 +7,12 @@ import { RegisterPage } from './Pages/RegisterPage';
 import { FormBanner } from './Pages/Forms/FormBanner';
 
 import { NotFoundPage } from './Pages/NotFoundPage';
+import { SideBar } from './Pages/Navigation/SideBar';
 
 export const Router = () => {
   return (
     <BrowserRouter>
+      <SideBar />
       <Switch>
         <Route exact={true} path="/" component={HomePage} />
         <Route path="/register" component={RegisterPage} />
