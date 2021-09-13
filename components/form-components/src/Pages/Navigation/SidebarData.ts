@@ -1,23 +1,26 @@
+import { IconType } from 'react-icons/lib';
+import { RiHome3Fill, RiClipboardFill, RiUserAddFill } from 'react-icons/ri';
+
 interface ISideBarItem {
   text: string;
-  cName: string;
   path: string;
+  icon: IconType;
 }
 
 export const SidebarData: ISideBarItem[] = [
   {
     text: 'Home',
     path: '/',
-    cName: 'nav-text',
+    icon: RiHome3Fill,
   },
   {
     text: 'Register',
     path: '/register',
-    cName: 'nav-text',
+    icon: RiUserAddFill,
   },
   {
-    text: 'FormBanner',
+    text: 'Form Banner',
     path: '/form-banner',
-    cName: 'nav-text',
+    icon: RiClipboardFill,
   },
 ];

@@ -1,49 +1,12 @@
 import React, { useState } from 'react';
 import IconLogo from '../../Assets/IconLogo';
 import { RiMenuFill, RiMenuFoldLine } from 'react-icons/ri';
-import { StyleSheet, css } from 'aphrodite';
-import { COLORS } from '../../Constants';
-import { Link } from 'react-router-dom';
+import { css } from 'aphrodite';
+import { styles, NavLink, ShowMenuIcon, HideMenuIcon, Title, Subtitle } from './Sidebar.Style';
 import { SidebarData } from './SidebarData';
 
 export const SideBar = () => {
-  const styles = StyleSheet.create({
-    navbar: {
-      backgroundColor: `${COLORS.blue}`,
-      color: `${COLORS.white}`,
-      height: '80px',
-      display: 'flex',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-    },
-    menuBars: {
-      marginLeft: '2rem',
-      fontSize: '2rem',
-      background: 'none',
-    },
-
-    title: {
-      color: `${COLORS.white}`,
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      fontSize: 19,
-      lineHeight: '24px',
-      letterSpacing: '0.4px',
-      marginLeft: 12,
-    },
-
-    subTitle: {
-      color: `${COLORS.white}`,
-      fontStyle: 'normal',
-      fontWeight: 300,
-      fontSize: 16,
-      lineHeight: '24px',
-      letterSpacing: '0.4px',
-      marginLeft: 12,
-    },
-  });
-
-  // REF: https://www.youtube.com/watch?v=CXa0f4-dWi4
+  //REF: https:www.youtube.com/watch?v=CXa0f4-dWi4
 
   const [sidebar, setSidebar] = useState(false);
 
@@ -51,24 +14,32 @@ export const SideBar = () => {
 
   return (
     <>
-      <div className={css(styles.navbar)}>
-        <Link to="#" className={css(styles.menuBars)}>
-          <RiMenuFill />
-        </Link>
-      </div>
-      <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-        <ul className="nav-menu-items">
-          <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
+      <ShowMenuIcon to="#" className={css(styles.navBarToggle)}>
+        <RiMenuFill onClick={handleShowSidebar} />
+      </ShowMenuIcon>
+
+      <nav className={sidebar ? css([styles.navMenu, styles.active]) : css(styles.navMenu)}>
+        <ul className={css(styles.navMenuItems)}>
+          <li className={css(styles.navBarToggle)}>
+            <div style={{ marginLeft: '2rem', scale: '80%' }}>
+              <IconLogo />
+            </div>
+
+            <div>
+              <Title>React</Title>
+              <Subtitle>Component Library</Subtitle>
+            </div>
+            <HideMenuIcon to="#">
               <RiMenuFoldLine onClick={handleShowSidebar} />
-            </Link>
+            </HideMenuIcon>
           </li>
           {SidebarData.map((item, index) => {
             return (
-              <li key={index} className={item.cName}>
-                <Link to={item.path}>
-                  <span>{item.text}</span>
-                </Link>
+              <li key={index} className={css(styles.navText)}>
+                <NavLink to={item.path}>
+                  <item.icon size={24} />
+                  <span style={{ paddingLeft: '16px' }}>{item.text}</span>
+                </NavLink>
               </li>
             );
           })}

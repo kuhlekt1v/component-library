@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../Constants';
+import { COLORS } from './Constants';
 
 export const FormItem = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const FormItem = styled.div`
     border-radius: 8px;
 
     &:focus {
-      outline: 2px solid ${COLORS.primary};
+      box-shadow: 0 0 0 1pt ${COLORS.primary};
     }
   }
 

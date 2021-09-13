@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { COLORS } from './Constants';
+import { COLORS } from './Styles/Constants';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -65,6 +65,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     line-height: 34px;
   }
+
+  
 
   /* Text Alignment */
   .center {
