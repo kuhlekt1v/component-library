@@ -60,7 +60,7 @@ export const CardBanner = styled(CardBase)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  margin: 66px 10px 10px;
   padding: 5px 15px 0;
   width: 100vw;
   gap: 10px;

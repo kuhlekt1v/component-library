@@ -3,6 +3,7 @@ import { NavLinkLt } from '../../Styles/StyledComponents';
 import { RiMenuFill } from 'react-icons/ri';
 import IconLogo from '../../Assets/IconLogo';
 import './Toolbar.css';
+import { Link } from 'react-router-dom';
 
 type Props = {
   handleDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,10 +30,14 @@ const Toolbar = ({ handleDrawerOpen }: Props) => {
         <div className="toolbar-navigation-items">
           <ul>
             <li>
-              <NavLinkLt to="/">Login</NavLinkLt>
+              <Link to="/" className="link">
+                Login
+              </Link>
             </li>
             <li>
-              <NavLinkLt to="/">Register</NavLinkLt>
+              <Link to="/" className="link">
+                Register
+              </Link>
             </li>
           </ul>
         </div>
