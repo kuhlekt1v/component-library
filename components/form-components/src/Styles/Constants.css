@@ -1,0 +1,21 @@
+:root {
+  --primary: #2f49d1;
+  --primarylt: #6377dd;
+  --secondary: #b6c1e9;
+  --info: #5887ff;
+  --danger: #f26464;
+  --warning: #ffb648;
+  --success: #4bde97;
+  --title: #171717;
+  --body: #767676;
+  --label: #b9b9b9;
+  --placeholder: #d6d7e3;
+  --inputbkg: #eff0f6;
+  --border: #eeeeee;
+  --white: #ffffff;
+  --purple: #5f2eea;
+  --blue: #0061f7;
+  --dark: #161624;
+  --light: #d9dbe9;
+  --yellow: #fffcf6;
+}

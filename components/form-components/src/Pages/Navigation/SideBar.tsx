@@ -22,7 +22,7 @@ export const SideBar = () => {
         <ul className={css(styles.navMenuItems)}>
           <li className={css(styles.navBarToggle)}>
             <div style={{ marginLeft: '2rem', scale: '80%' }}>
-              <IconLogo />
+              <IconLogo width="40" height="40" />
             </div>
 
             <div>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { COLORS } from './Constants';
+import { Link } from 'react-router-dom';
+import './Constants.css';
 
 export const FormItem = styled.div`
   display: flex;
@@ -13,15 +14,15 @@ export const FormItem = styled.div`
   }
 
   input {
-    background-color: ${COLORS.inputbkg};
-    color: ${COLORS.body};
+    background-color: var(--inputbkg);
+    color: var(--body);
     padding: 5px 16px;
     height: 44px;
     border: none;
     border-radius: 8px;
 
     &:focus {
-      box-shadow: 0 0 0 1pt ${COLORS.primary};
+      box-shadow: 0 0 0 1pt var(--primary);
     }
   }
 
@@ -44,7 +45,7 @@ export const HorizontalContainer = styled.div`
 `;
 
 const CardBase = styled.div`
-  background-color: ${COLORS.white};
+  background-color: var(--white);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 5px 10px rgba(160, 163, 189, 0.1);
@@ -68,7 +69,7 @@ export const CardBanner = styled(CardBase)`
 // Form validation.
 export const ErrorMessage = styled.div`
   background-color: transparent;
-  color: ${COLORS.danger};
+  color: var(--danger);
   font-size: 12px;
   font-style: italic;
   margin: 10px 0 0 5px;
@@ -93,15 +94,28 @@ export const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button)`
-  color: ${COLORS.white};
-  background-color: ${COLORS.primary};
+  color: var(--white);
+  background-color: var(--primary);
 
   &:hover {
-    background-color: ${COLORS.primarylt};
+    background-color: var(--primarylt);
   }
 `;
 
 // Inline buttons.
 export const IlBtnPrimary = styled(PrimaryButton)`
   margin-top: 20px;
+`;
+
+// === LINKS === \\
+export const NavLinkLt = styled(Link)`
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.5;
+
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 `;
