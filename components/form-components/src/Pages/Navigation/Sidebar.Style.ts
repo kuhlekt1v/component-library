@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     marginRight: '2rem',
     paddingRight: '16px',
     position: 'fixed',
+    zIndex: 1,
     top: 0,
     left: '-100%',
     transition: '850ms',
