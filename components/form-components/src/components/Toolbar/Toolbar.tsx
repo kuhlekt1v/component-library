@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLinkLt } from '../../Styles/StyledComponents';
 import { RiMenuFill } from 'react-icons/ri';
 import IconLogo from '../../Assets/IconLogo';
 import './Toolbar.css';
@@ -30,12 +29,12 @@ const Toolbar = ({ handleDrawerOpen }: Props) => {
         <div className="toolbar-navigation-items">
           <ul>
             <li>
-              <Link to="/" className="link">
+              <Link to="/login" className="link">
                 Login
               </Link>
             </li>
             <li>
-              <Link to="/" className="link">
+              <Link to="/register" className="link">
                 Register
               </Link>
             </li>

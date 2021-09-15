@@ -5,7 +5,7 @@ import { SideDrawerData } from './SideDrawerData';
 import { NavLinkLt } from '../../Styles/StyledComponents';
 
 import './SideDrawer.css';
-import { Subtitle, Title } from '../../Pages/Navigation/Sidebar.Style';
+import { Subtitle, Title } from '../../Styles/StyledComponents';
 
 type Props = {
   handleDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
