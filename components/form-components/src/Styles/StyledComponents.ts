@@ -140,3 +140,14 @@ export const NavLinkLt = styled(Link)`
     opacity: 1;
   }
 `;
+
+export const NavLinkInfo = styled(Link)`
+  color: var(--info);
+  text-decoration: none;
+  font-weight: 300;
+
+  &:hover,
+  &:active {
+    color: var(--primary);
+  }
+`;

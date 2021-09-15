@@ -1,6 +1,15 @@
 import React from 'react';
+import { FormCheck } from '../FormCheck';
+import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Card, CenterContainer, FormItem, PrimaryButton, ErrorMessage } from '../../../Styles/StyledComponents';
+import {
+  Card,
+  CenterContainer,
+  FormItem,
+  PrimaryButton,
+  ErrorMessage,
+  NavLinkInfo,
+} from '../../../Styles/StyledComponents';
 
 import '../Forms.css';
 
@@ -56,6 +65,13 @@ export const LoginForm = () => {
                   <ErrorMessage>Password required.</ErrorMessage>
                 )}
               </FormItem>
+              <FormItem>
+                <NavLinkInfo to="/" style={{ marginLeft: '5px', fontSize: '16px' }}>
+                  Forgot your password?
+                </NavLinkInfo>
+              </FormItem>
+
+              <FormCheck id="rememberCheck" value="true" label="Remember me next time" />
               <FormItem>
                 <PrimaryButton type="submit">Sign In</PrimaryButton>
               </FormItem>
