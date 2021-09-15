@@ -107,6 +107,27 @@ export const IlBtnPrimary = styled(PrimaryButton)`
   margin-top: 20px;
 `;
 
+// === TEXT === \\
+
+const TitleText = styled.p`
+  color: var(--white);
+  font-style: normal;
+  line-height: 24px;
+  margin-left: 12px;
+  white-space: nowrap;
+`;
+
+export const Title = styled(TitleText)`
+  font-weight: bold;
+  font-size: 19px;
+  letter-spacing: 0.4px;
+`;
+
+export const Subtitle = styled(TitleText)`
+  font-weight: 300;
+  font-size: 14px;
+`;
+
 // === LINKS === \\
 export const NavLinkLt = styled(Link)`
   color: var(--white);
