@@ -33,7 +33,7 @@ export const Router = () => {
         <Route path="/register" component={RegisterPage} />
         <Route path="/form-banner" component={BannerForm} />
         <Route path="/notfound" component={NotFoundPage} />
-        {/* Page not found. */}
+        {/* Redirect to not found page. */}
         <Route component={() => <Redirect to="/notfound" />} />
       </Switch>
     </BrowserRouter>

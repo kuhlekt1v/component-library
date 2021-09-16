@@ -22,6 +22,7 @@ export const FormItem = styled.div`
     border-radius: 8px;
 
     &:focus {
+      outline: none;
       box-shadow: 0 0 0 1pt var(--primary);
     }
   }
@@ -58,16 +59,24 @@ export const Card = styled(CardBase)`
 
 export const CardBanner = styled(CardBase)`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: center;
+  justify-content: space-between; */
   margin: 66px 10px 10px;
   padding: 5px 15px 0;
   width: 100vw;
+  /* gap: 10px; */
+`;
+
+export const InlineForm = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   gap: 10px;
 `;
 
 // Form validation.
-export const ErrorMessage = styled.div`
+export const ErrorMessage = styled.span`
   background-color: transparent;
   color: var(--danger);
   font-size: 12px;

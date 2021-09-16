@@ -4,3 +4,14 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+.error-display {
+  margin-top: 25px;
+}
+
+.error-display input,
+.error-display input:active,
+.error-display input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1pt var(--danger) !important;
+}
