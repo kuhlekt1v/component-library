@@ -1,0 +1,48 @@
+@import '../../../Styles/Constants.css';
+
+.side-drawer {
+  background-color: var(--blue);
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  max-width: 350px;
+  padding: 1.75rem;
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.side-drawer ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-close-icon {
+  margin-left: 24px;
+}
+
+.drawer-divider {
+  opacity: 0.5;
+  margin: 24px 0;
+  border: 1px solid var(--white);
+}
+
+.drawer-container {
+  height: 60px;
+  padding: 8px 0px;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-link span {
+  padding-left: 16px;
+}

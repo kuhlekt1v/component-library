@@ -1,17 +1,20 @@
 import React from 'react';
 import IconLogo from '../../Assets/IconLogo';
 import { RiMenuFoldLine } from 'react-icons/ri';
-import { SideDrawerData } from './SideDrawerData';
 import { NavLinkLt } from '../../Styles/StyledComponents';
 
-import './SideDrawer.css';
+import '../SideDrawer/SideDrawer.css';
 import { Subtitle, Title } from '../../Styles/StyledComponents';
+import { MenuItem } from './MenuItem';
+
+// import { SidebarData } from './SidebarData';
+// import { Submenu } from './Submenu';
 
 type Props = {
   handleDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const SideDrawer = ({ handleDrawerOpen }: Props) => {
+const Sidebar = ({ handleDrawerOpen }: Props) => {
   const closeDrawerHandler = () => handleDrawerOpen(false);
 
   return (
@@ -30,29 +33,10 @@ const SideDrawer = ({ handleDrawerOpen }: Props) => {
           </NavLinkLt>
         </li>
         <hr className="drawer-divider" />
-        {SideDrawerData.map((item, index) => {
-          if (item.icon !== undefined) {
-            return (
-              <li key={index} className="drawer-container">
-                <NavLinkLt to={item.path} className="drawer-link" onClick={closeDrawerHandler}>
-                  <item.icon size={24} />
-                  <span>{item.text}</span>
-                </NavLinkLt>
-              </li>
-            );
-          } else {
-            return (
-              <li key={index} className="drawer-container">
-                <NavLinkLt to={item.path} className="drawer-link" onClick={closeDrawerHandler}>
-                  <span>{item.text}</span>
-                </NavLinkLt>
-              </li>
-            );
-          }
-        })}
+        <MenuItem handleDrawerOpen={closeDrawerHandler} />
       </ul>
     </nav>
   );
 };
 
-export default SideDrawer;
+export default Sidebar;

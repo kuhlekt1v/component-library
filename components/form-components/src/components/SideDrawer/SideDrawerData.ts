@@ -4,7 +4,7 @@ import { RiHome3Fill, RiClipboardFill, RiUserAddFill } from 'react-icons/ri';
 interface ISideDrawerItem {
   text: string;
   path: string;
-  icon: IconType;
+  icon?: IconType;
 }
 
 export const SideDrawerData: ISideDrawerItem[] = [
@@ -19,7 +19,7 @@ export const SideDrawerData: ISideDrawerItem[] = [
     icon: RiUserAddFill,
   },
   {
-    text: 'Form Banner',
+    text: 'Sample Forms',
     path: '/form-banner',
     icon: RiClipboardFill,
   },

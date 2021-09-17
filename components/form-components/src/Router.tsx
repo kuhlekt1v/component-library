@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import { HomePage } from './Pages/HomePage';
+import { LoginPage } from './Pages/LoginPage';
 import { RegisterPage } from './Pages/RegisterPage';
+import { NotFoundPage } from './Pages/NotFoundPage';
 
 import { BannerForm } from './components/Forms/Banner/BannerForm';
 
-import { NotFoundPage } from './Pages/NotFoundPage';
 import Toolbar from './components/Toolbar/Toolbar';
-import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
-import { LoginPage } from './Pages/LoginPage';
+
+import { SideDrawer } from './components/Navigation/SideDrawer/SideDrawer';
 
 export const Router = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
