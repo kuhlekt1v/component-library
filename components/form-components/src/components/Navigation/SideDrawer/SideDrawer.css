@@ -41,8 +41,28 @@
 .drawer-link {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.link-item {
+  flex-grow: 1;
+}
+
+.link-icon {
+  max-width: 30px;
+  text-align: center;
+}
+
+.icon-spacer {
+  width: '30px';
 }
 
 .drawer-link span {
-  padding-left: 16px;
+  padding-left: 20px;
+}
+
+.drawer-icon {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

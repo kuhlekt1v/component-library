@@ -48,7 +48,7 @@ export const MenuItem = ({ handleDrawerOpen }: Props) => {
                     style={{ opacity: submenuOpen ? '1' : '0.5' }}
                     onClick={submenuHandler}
                   >
-                    <item.icon size={24} />
+                    {/* <item.icon size={24} /> */}
                     <span>{item.text}</span>
                     {/* Need way to make optional */}
                     {submenuOpen ? (

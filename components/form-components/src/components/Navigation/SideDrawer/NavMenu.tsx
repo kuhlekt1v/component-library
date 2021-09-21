@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubMenu } from './SubMenu';
 import { MenuData } from './MenuData';
 import { MenuItem } from './MenuItem';
 
 export const NavMenu = () => {
+  const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
+
   return (
     <>
-      {MenuData.map((navItem, navIndex) => {
+      {MenuData.map((navItem) => {
         if (navItem.subMenu !== undefined) {
           return (
             <>
-              <MenuItem key={navIndex} text={navItem.text} iconvar={navItem.icon} />
+              <MenuItem
+                key={navItem.id}
+                text={navItem.text}
+                iconvar={navItem.icon}
+                handleSubmenuOpen={setSubmenuOpen}
+                submenu={true}
+              />
+
               {navItem.subMenu.map((subItem, subIndex) => {
-                return <SubMenu key={subIndex} text={subItem.text} path={subItem.path} />;
+                let submenu;
+                if (submenuOpen) {
+                  submenu = <SubMenu key={subIndex} text={subItem.text} path={subItem.path} />;
+                }
+                return submenu;
               })}
             </>
           );
         } else {
-          return <MenuItem key={navIndex} text={navItem.text} iconvar={navItem.icon} />;
+          return (
+            <MenuItem
+              key={navItem.id}
+              text={navItem.text}
+              iconvar={navItem.icon}
+              handleSubmenuOpen={setSubmenuOpen}
+              submenu={false}
+            />
+          );
         }
       })}
     </>
