@@ -14,6 +14,7 @@ export const NavMenu = () => {
             <>
               <MenuItem
                 key={navItem.id}
+                path={navItem.path}
                 text={navItem.text}
                 iconvar={navItem.icon}
                 handleSubmenuOpen={setSubmenuOpen}
@@ -31,13 +32,7 @@ export const NavMenu = () => {
           );
         } else {
           return (
-            <MenuItem
-              key={navItem.id}
-              text={navItem.text}
-              iconvar={navItem.icon}
-              handleSubmenuOpen={setSubmenuOpen}
-              submenu={false}
-            />
+            <MenuItem key={navItem.id} path={navItem.path} text={navItem.text} iconvar={navItem.icon} submenu={false} />
           );
         }
       })}

@@ -9,20 +9,21 @@ import './SideDrawer.css';
 type Props = {
   key: number;
   text: string;
+  path: string;
   submenu: boolean;
   iconvar?: IconProp;
-  handleSubmenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  // setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSubmenuOpen?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
 };
 
-export const MenuItem = ({ key, text, submenu, iconvar, handleSubmenuOpen }: Props) => {
+export const MenuItem = ({ key, path, text, submenu, iconvar, handleSubmenuOpen }: Props) => {
+  //const closeDrawerHandler = () => handleDrawerOpen(false);
   const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
 
   const openSubmenuHandler = () => {
-    if (!submenuOpen) {
+    if (handleSubmenuOpen !== undefined && !submenuOpen) {
       handleSubmenuOpen(true);
       setSubmenuOpen(true);
-    } else {
+    } else if (handleSubmenuOpen !== undefined && submenuOpen) {
       handleSubmenuOpen(false);
       setSubmenuOpen(false);
     }
@@ -34,7 +35,14 @@ export const MenuItem = ({ key, text, submenu, iconvar, handleSubmenuOpen }: Pro
 
   return (
     <li key={key} className="drawer-container">
-      <NavLinkLt to="#" className="drawer-link" onClick={openSubmenuHandler}>
+      <NavLinkLt
+        to={path}
+        className="drawer-link"
+        onClick={() => {
+          openSubmenuHandler();
+          //closeDrawerHandler();
+        }}
+      >
         <div className={'link-item link-icon ' + ({ itemIcon } === undefined ? 'icon-spacer' : null)}>{itemIcon}</div>
         <span className="link-item">{text}</span>
         <div>{submenu && <FontAwesomeIcon icon={submenuOpen ? faSortUp : faSortDown} />}</div>
