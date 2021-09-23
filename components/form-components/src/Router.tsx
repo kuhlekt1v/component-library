@@ -10,7 +10,6 @@ import { BannerForm } from './components/Forms/Banner/BannerForm';
 
 import Toolbar from './components/Toolbar/Toolbar';
 import Backdrop from './components/Backdrop/Backdrop';
-
 import { SideDrawer } from './components/Navigation/SideDrawer/SideDrawer';
 
 export const Router = () => {
@@ -23,6 +22,7 @@ export const Router = () => {
     sideDrawer = <SideDrawer handleDrawerOpen={setDrawerOpen} />;
     backDrop = <Backdrop />;
   }
+
   return (
     <BrowserRouter>
       <Toolbar handleDrawerOpen={setDrawerOpen} />
