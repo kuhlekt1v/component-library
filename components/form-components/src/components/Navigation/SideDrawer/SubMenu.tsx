@@ -4,14 +4,14 @@ import { NavLinkLt } from '../../../Styles/StyledComponents';
 import './SideDrawer.css';
 
 type Props = {
-  key: number;
+  id: number;
   text: string;
   path: string;
 };
 
-export const SubMenu = ({ key, text, path }: Props) => {
+export const SubMenu = ({ id, text, path }: Props) => {
   return (
-    <li key={key} className="drawer-container">
+    <li key={id} className="drawer-container">
       <NavLinkLt to={path} className="drawer-link">
         <div className="link-item link-icon"></div>
         <span className="link-item">{text}</span>

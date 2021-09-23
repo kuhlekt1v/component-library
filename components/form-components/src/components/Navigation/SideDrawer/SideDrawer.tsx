@@ -3,6 +3,8 @@ import IconLogo from '../../../Assets/IconLogo';
 import { RiMenuFoldLine } from 'react-icons/ri';
 import { Title, Subtitle, NavLinkLt } from '../../../Styles/StyledComponents';
 
+// https://stackoverflow.com/questions/61481948/react-typescript-how-get-onclick-prop-from-child-to-parent
+
 import './SideDrawer.css';
 import { NavMenu } from './NavMenu';
 
@@ -11,7 +13,21 @@ type Props = {
 };
 
 export const SideDrawer = ({ handleDrawerOpen }: Props) => {
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
   const closeDrawerHandler = () => handleDrawerOpen(false);
+
+  let navmenu;
+
+  if (drawerOpen) {
+    navmenu = (
+      <NavMenu
+        handleDrawerOpen={() => {
+          setDrawerOpen(false);
+          closeDrawerHandler();
+        }}
+      />
+    );
+  }
 
   return (
     <nav className="side-drawer">
@@ -31,7 +47,7 @@ export const SideDrawer = ({ handleDrawerOpen }: Props) => {
         </li>
         <hr className="drawer-divider" />
         {/* Navigation menu content area. */}
-        <NavMenu />
+        {navmenu}
       </ul>
     </nav>
   );

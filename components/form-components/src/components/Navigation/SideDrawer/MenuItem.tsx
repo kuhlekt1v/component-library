@@ -7,16 +7,17 @@ import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import './SideDrawer.css';
 
 type Props = {
-  key: number;
+  id: number;
   text: string;
   path: string;
   submenu: boolean;
   iconvar?: IconProp;
   handleSubmenuOpen?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
+  handleDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const MenuItem = ({ key, path, text, submenu, iconvar, handleSubmenuOpen }: Props) => {
-  //const closeDrawerHandler = () => handleDrawerOpen(false);
+export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, handleDrawerOpen }: Props) => {
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
 
   const openSubmenuHandler = () => {
@@ -29,18 +30,27 @@ export const MenuItem = ({ key, path, text, submenu, iconvar, handleSubmenuOpen 
     }
   };
 
+  // Don't close sidedrawer if submenu header clicked.
+  const openDrawerHandler = () => {
+    if (handleSubmenuOpen === undefined) {
+      alert('success');
+      handleDrawerOpen(false);
+      setDrawerOpen(false);
+    }
+  };
+
   let itemIcon;
 
   if (iconvar !== undefined) itemIcon = <FontAwesomeIcon icon={iconvar} />;
 
   return (
-    <li key={key} className="drawer-container">
+    <li key={id} className="drawer-container">
       <NavLinkLt
         to={path}
         className="drawer-link"
         onClick={() => {
           openSubmenuHandler();
-          //closeDrawerHandler();
+          openDrawerHandler();
         }}
       >
         <div className={'link-item link-icon ' + ({ itemIcon } === undefined ? 'icon-spacer' : null)}>{itemIcon}</div>

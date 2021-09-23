@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 import IconLogo from '../../Assets/IconLogo';
 import './Toolbar.css';
@@ -9,7 +9,12 @@ type Props = {
 };
 
 const Toolbar = ({ handleDrawerOpen }: Props) => {
-  const openDrawerHandler = () => handleDrawerOpen(true);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+
+  const openDrawerHandler = () => {
+    handleDrawerOpen(true);
+    setDrawerOpen(true);
+  };
 
   return (
     <header className="toolbar">
