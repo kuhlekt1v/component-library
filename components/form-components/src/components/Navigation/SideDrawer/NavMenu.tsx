@@ -22,7 +22,6 @@ export const NavMenu = ({ handleDrawerOpen }: Props) => {
         if (navItem.subMenu !== undefined) {
           return (
             <>
-              <li onClick={closeDrawerHandler}>close-test</li>
               <MenuItem
                 id={navItem.id}
                 path={navItem.path}
@@ -35,7 +34,14 @@ export const NavMenu = ({ handleDrawerOpen }: Props) => {
               {navItem.subMenu.map((subItem, subIndex) => {
                 let submenu;
                 if (submenuOpen) {
-                  submenu = <SubMenu id={subIndex} text={subItem.text} path={subItem.path} />;
+                  submenu = (
+                    <SubMenu
+                      id={subIndex}
+                      text={subItem.text}
+                      path={subItem.path}
+                      handleDrawerOpen={() => closeDrawerHandler()}
+                    />
+                  );
                 }
                 return submenu;
               })}
