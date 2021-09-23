@@ -13,11 +13,13 @@ type Props = {
   submenu: boolean;
   iconvar?: IconProp;
   handleSubmenuOpen?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
-  handleDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleDrawerOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, handleDrawerOpen }: Props) => {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+  let itemIcon;
+  let menuItem;
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
   const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
 
   const openSubmenuHandler = () => {
@@ -31,32 +33,38 @@ export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, 
   };
 
   // Don't close sidedrawer if submenu header clicked.
-  const openDrawerHandler = () => {
+  const closeDrawerHandler = () => {
     if (handleSubmenuOpen === undefined) {
-      alert('success');
-      handleDrawerOpen(false);
       setDrawerOpen(false);
+
+      if (handleDrawerOpen !== undefined) {
+        handleDrawerOpen(false);
+      }
     }
   };
 
-  let itemIcon;
-
   if (iconvar !== undefined) itemIcon = <FontAwesomeIcon icon={iconvar} />;
 
-  return (
-    <li key={id} className="drawer-container">
+  if (drawerOpen) {
+    menuItem = (
       <NavLinkLt
         to={path}
         className="drawer-link"
         onClick={() => {
           openSubmenuHandler();
-          openDrawerHandler();
+          closeDrawerHandler();
         }}
       >
         <div className={'link-item link-icon ' + ({ itemIcon } === undefined ? 'icon-spacer' : null)}>{itemIcon}</div>
         <span className="link-item">{text}</span>
         <div>{submenu && <FontAwesomeIcon icon={submenuOpen ? faSortUp : faSortDown} />}</div>
       </NavLinkLt>
+    );
+  }
+
+  return (
+    <li key={id} className="drawer-container">
+      {menuItem}
     </li>
   );
 };

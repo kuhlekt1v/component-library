@@ -12,8 +12,8 @@ export const NavMenu = ({ handleDrawerOpen }: Props) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
 
   const closeDrawerHandler = () => {
-    setDrawerOpen(false);
     handleDrawerOpen(false);
+    setDrawerOpen(false);
   };
 
   return (
@@ -28,7 +28,6 @@ export const NavMenu = ({ handleDrawerOpen }: Props) => {
                 path={navItem.path}
                 text={navItem.text}
                 iconvar={navItem.icon}
-                handleDrawerOpen={setDrawerOpen}
                 handleSubmenuOpen={setSubmenuOpen}
                 submenu={true}
               />
@@ -50,7 +49,7 @@ export const NavMenu = ({ handleDrawerOpen }: Props) => {
               text={navItem.text}
               iconvar={navItem.icon}
               submenu={false}
-              handleDrawerOpen={setDrawerOpen}
+              handleDrawerOpen={() => closeDrawerHandler()}
             />
           );
         }
