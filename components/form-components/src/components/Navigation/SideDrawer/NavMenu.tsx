@@ -9,12 +9,7 @@ type Props = {
 
 export const NavMenu = ({ handleDrawerOpen }: Props) => {
   const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
-
-  const closeDrawerHandler = () => {
-    handleDrawerOpen(false);
-    setDrawerOpen(false);
-  };
+  const closeDrawerHandler = () => handleDrawerOpen(false);
 
   return (
     <>

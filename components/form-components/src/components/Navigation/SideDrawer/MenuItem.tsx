@@ -17,7 +17,6 @@ type Props = {
 };
 
 export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, handleDrawerOpen }: Props) => {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
   const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
 
   const openSubmenuHandler = () => {
@@ -30,20 +29,17 @@ export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, 
     }
   };
 
-  // Don't close sidedrawer if submenu header clicked.
   const closeDrawerHandler = () => {
     if (handleDrawerOpen !== undefined) {
       handleDrawerOpen(false);
-      setDrawerOpen(false);
     }
   };
 
   let itemIcon;
   if (iconvar !== undefined) itemIcon = <FontAwesomeIcon icon={iconvar} />;
 
-  let menuItem;
-  if (drawerOpen) {
-    menuItem = (
+  return (
+    <li key={id} className="drawer-container">
       <NavLinkLt
         to={path}
         className="drawer-link"
@@ -56,12 +52,6 @@ export const MenuItem = ({ id, path, text, submenu, iconvar, handleSubmenuOpen, 
         <span className="link-item">{text}</span>
         <div>{submenu && <FontAwesomeIcon icon={submenuOpen ? faSortUp : faSortDown} />}</div>
       </NavLinkLt>
-    );
-  }
-
-  return (
-    <li key={id} className="drawer-container">
-      {menuItem}
     </li>
   );
 };

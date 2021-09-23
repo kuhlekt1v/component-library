@@ -13,22 +13,6 @@ type Props = {
 };
 
 export const SideDrawer = ({ handleDrawerOpen }: Props) => {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
-  const closeDrawerHandler = () => handleDrawerOpen(false);
-
-  let navmenu;
-
-  if (drawerOpen) {
-    navmenu = (
-      <NavMenu
-        handleDrawerOpen={() => {
-          setDrawerOpen(false);
-          closeDrawerHandler();
-        }}
-      />
-    );
-  }
-
   return (
     <nav className="side-drawer">
       <ul className="drawer-content">
@@ -41,13 +25,13 @@ export const SideDrawer = ({ handleDrawerOpen }: Props) => {
             <Title>React</Title>
             <Subtitle>Component Library</Subtitle>
           </div>
-          <NavLinkLt to="/" className="drawer-close-icon">
-            <RiMenuFoldLine size={32} onClick={closeDrawerHandler} />
+          <NavLinkLt to="#" className="drawer-close-icon">
+            <RiMenuFoldLine size={32} onClick={() => handleDrawerOpen(false)} />
           </NavLinkLt>
         </li>
         <hr className="drawer-divider" />
         {/* Navigation menu content area. */}
-        {navmenu}
+        <NavMenu handleDrawerOpen={() => handleDrawerOpen(false)} />
       </ul>
     </nav>
   );
